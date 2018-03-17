@@ -70,5 +70,5 @@
     print_r($myName);
 
     echo "</pre>";
-
+    echo(strlen($myName["second"]))
 ?>
