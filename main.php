@@ -1,74 +1,21 @@
 <?php
-    echo "<link rel='stylesheet' href='main.css'>";
 
-    echo "<h3>Choose A Day</h3>" . "<br>";
+    if(is_dir("Omar")){
 
-    echo '<select>';
-        for($i = 1; $i <= 31; $i++){
+        $omarFolderPath = dirname(__FILE__);
 
-            echo "<option value ='$i'>" . $i . "</option>";
 
+        if(file_exists("$omarFolderPath/Omar/omarPass.txt")){
+
+            echo "yes I found this file";
+            file_put_contents("$omarFolderPath/Omar/omarPass.txt","hello from other world!");
+
+        } else{
+
+            echo "no I didn't found it, sorry omar..." . "<br>";
+            echo "BUT I WILL CREATE ONE FOR YOU <3";
+            file_put_contents("$omarFolderPath/Omar/omarPass.txt","hello from other world!");
         }
-    echo '</select>';
 
-
-
-    echo "<h3>Choose A Country</h3>" . "<br>";
-    echo '<select>';
-    $countries = array("Egypt","Saudi Arabia","Qatar");
-    array_unshift($countries,"Hello World");
-    array_pop($countries);
-    foreach($countries as $value){
-    echo "<option value='$value' >" . $value . "</option>";
     }
-    echo '</select>';
-
-
-
-
-
-    $myFriends = "Abd El Nasser,Abo 8besha,Itch,Ayman,Hamdy,Abo Sharaf";
-    $shuffled = explode(",",$myFriends);
-    array_reverse($shuffled);
-    $shuffled += array_fill(count($shuffled),1,"omar");
-    echo "<pre>";
-
-    print_r($shuffled);
-
-    echo "</pre>";
-
-
-
-
-    $myName = array(
-            "first" => "Omar",
-            "second" => "Ahmed",
-            "third" => "El-Sayed",
-            "forth" => "Awad",
-            "fifth" => "El-Dmohi",
-            "sixth" => "Folan"
-            );
-
-    echo "<pre>";
-
-    print_r($myName);
-
-    echo "</pre>";
-
-
-    echo "<pre>";
-
-    asort($myName);
-    print_r($myName);
-
-    echo "</pre>";
-
-
-    echo "<pre>";
-
-    ksort($myName);
-    print_r($myName);
-
-    echo "</pre>";
-    echo(strlen($myName["second"]))
 ?>
